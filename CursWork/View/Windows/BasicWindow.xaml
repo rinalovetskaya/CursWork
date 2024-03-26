@@ -1,0 +1,89 @@
+﻿<Window x:Class="CursWork.View.Windows.BasicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursWork.View.Windows"
+        mc:Ignorable="d"
+        Title="Hikiai"
+        Height="960" 
+        Width="1440"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+
+        <Frame Name="BasicFrm"
+               Grid.Row="1"
+               Grid.Column="1"
+               NavigationUIVisibility="Hidden"/>
+
+        <!--МЕНЮ-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Button BorderThickness="0"
+                    Name="HomeBtn"
+                    Click="HomeBtn_Click"
+                    Background="#E9B0A4">
+                <Image Source="/Resources/home_icon_241482.png" 
+                       Width="100"/>
+            </Button>
+
+            <Button BorderThickness="0"
+                    Name="SearchBtn"
+                    Click="SearchBtn_Click"
+                    Grid.Row="1"
+                    Background="#E9B0A4">
+                <Image Source="/Resources/search_status_icon_242114.png" 
+                       Width="100"/>
+            </Button>
+
+            <Button BorderThickness="0"
+                    Name="AuthorsBtn"
+                    Click="AuthorsBtn_Click"
+                    Grid.Row="2"
+                    Background="#E9B0A4">
+                <Image Source="/Resources/user_search_icon_241965.png"  
+                       Width="100"/>
+            </Button>
+
+            <Button BorderThickness="0"
+                    Name="ProfileBtn"
+                    Click="ProfileBtn_Click"
+                    Grid.Row="3"
+                    Background="#E9B0A4">
+                <Image Source="/Resources/profile_circle_icon_241879.png" 
+                       Width="100"/>
+            </Button>
+        </Grid>
+        
+        <!--ВЕРХНЯЯ СТРОКА-->
+        <Grid Grid.ColumnSpan="2"
+              Background="#E9B0A4">
+            <TextBlock Text="Hikiai"
+                       FontSize="100"/>
+
+            <TextBlock Text="Главная"
+                       FontSize="50"
+                       Margin="120 0"
+                       Name="PageTextTbl"
+                       HorizontalAlignment="Right"/>
+        </Grid>
+        
+
+    </Grid>
+</Window>

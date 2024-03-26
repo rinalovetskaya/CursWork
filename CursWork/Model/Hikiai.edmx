@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Leonteva.Kate.CursWorkModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlbumRef">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="album_id" Type="int" Nullable="false" />
+          <Property Name="ref_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="author_id" Type="int" Nullable="false" />
+          <Property Name="ref_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RefTag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="author_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nickname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="17" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="200" />
+          <Property Name="photo" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Album_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Album" Type="Self.Album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Album">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumRef_Album">
+          <End Role="Album" Type="Self.Album" Multiplicity="1" />
+          <End Role="AlbumRef" Type="Self.AlbumRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Album">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlbumRef">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumRef_Reference">
+          <End Role="Reference" Type="Self.Reference" Multiplicity="1" />
+          <End Role="AlbumRef" Type="Self.AlbumRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlbumRef">
+              <PropertyRef Name="ref_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Reference" Type="Self.Reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reference">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefTag_Reference">
+          <End Role="Reference" Type="Self.Reference" Multiplicity="1" />
+          <End Role="RefTag" Type="Self.RefTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RefTag">
+              <PropertyRef Name="ref_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefTag_Tag">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="RefTag" Type="Self.RefTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RefTag">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище LeontevaKateCursWorkModelContainer">
+          <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlbumRef" EntityType="Self.AlbumRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reference" EntityType="Self.Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefTag" EntityType="Self.RefTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Album_User" Association="Self.FK_Album_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Album" EntitySet="Album" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumRef_Album" Association="Self.FK_AlbumRef_Album">
+            <End Role="Album" EntitySet="Album" />
+            <End Role="AlbumRef" EntitySet="AlbumRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumRef_Reference" Association="Self.FK_AlbumRef_Reference">
+            <End Role="Reference" EntitySet="Reference" />
+            <End Role="AlbumRef" EntitySet="AlbumRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_User" Association="Self.FK_Reference_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Reference" EntitySet="Reference" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefTag_Reference" Association="Self.FK_RefTag_Reference">
+            <End Role="Reference" EntitySet="Reference" />
+            <End Role="RefTag" EntitySet="RefTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefTag_Tag" Association="Self.FK_RefTag_Tag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="RefTag" EntitySet="RefTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_User" Association="Self.FK_Subscriber_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_User1" Association="Self.FK_Subscriber_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Leonteva.Kate.CursWorkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HikiaiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Album" EntityType="Leonteva.Kate.CursWorkModel.Album" />
+          <EntitySet Name="AlbumRef" EntityType="Leonteva.Kate.CursWorkModel.AlbumRef" />
+          <EntitySet Name="Reference" EntityType="Leonteva.Kate.CursWorkModel.Reference" />
+          <EntitySet Name="RefTag" EntityType="Leonteva.Kate.CursWorkModel.RefTag" />
+          <EntitySet Name="Role" EntityType="Leonteva.Kate.CursWorkModel.Role" />
+          <EntitySet Name="Subscriber" EntityType="Leonteva.Kate.CursWorkModel.Subscriber" />
+          <EntitySet Name="Tag" EntityType="Leonteva.Kate.CursWorkModel.Tag" />
+          <EntitySet Name="User" EntityType="Leonteva.Kate.CursWorkModel.User" />
+          <AssociationSet Name="FK_Album_User" Association="Leonteva.Kate.CursWorkModel.FK_Album_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Album" EntitySet="Album" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumRef_Album" Association="Leonteva.Kate.CursWorkModel.FK_AlbumRef_Album">
+            <End Role="Album" EntitySet="Album" />
+            <End Role="AlbumRef" EntitySet="AlbumRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbumRef_Reference" Association="Leonteva.Kate.CursWorkModel.FK_AlbumRef_Reference">
+            <End Role="Reference" EntitySet="Reference" />
+            <End Role="AlbumRef" EntitySet="AlbumRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_User" Association="Leonteva.Kate.CursWorkModel.FK_Reference_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Reference" EntitySet="Reference" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefTag_Reference" Association="Leonteva.Kate.CursWorkModel.FK_RefTag_Reference">
+            <End Role="Reference" EntitySet="Reference" />
+            <End Role="RefTag" EntitySet="RefTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefTag_Tag" Association="Leonteva.Kate.CursWorkModel.FK_RefTag_Tag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="RefTag" EntitySet="RefTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Leonteva.Kate.CursWorkModel.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_User" Association="Leonteva.Kate.CursWorkModel.FK_Subscriber_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_User1" Association="Leonteva.Kate.CursWorkModel.FK_Subscriber_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Leonteva.Kate.CursWorkModel.FK_Album_User" FromRole="Album" ToRole="User" />
+          <NavigationProperty Name="AlbumRef" Relationship="Leonteva.Kate.CursWorkModel.FK_AlbumRef_Album" FromRole="Album" ToRole="AlbumRef" />
+        </EntityType>
+        <EntityType Name="AlbumRef">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="album_id" Type="Int32" Nullable="false" />
+          <Property Name="ref_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Album" Relationship="Leonteva.Kate.CursWorkModel.FK_AlbumRef_Album" FromRole="AlbumRef" ToRole="Album" />
+          <NavigationProperty Name="Reference" Relationship="Leonteva.Kate.CursWorkModel.FK_AlbumRef_Reference" FromRole="AlbumRef" ToRole="Reference" />
+        </EntityType>
+        <EntityType Name="Reference">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author_id" Type="Int32" Nullable="false" />
+          <Property Name="ref_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AlbumRef" Relationship="Leonteva.Kate.CursWorkModel.FK_AlbumRef_Reference" FromRole="Reference" ToRole="AlbumRef" />
+          <NavigationProperty Name="User" Relationship="Leonteva.Kate.CursWorkModel.FK_Reference_User" FromRole="Reference" ToRole="User" />
+          <NavigationProperty Name="RefTag" Relationship="Leonteva.Kate.CursWorkModel.FK_RefTag_Reference" FromRole="Reference" ToRole="RefTag" />
+        </EntityType>
+        <EntityType Name="RefTag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ref_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reference" Relationship="Leonteva.Kate.CursWorkModel.FK_RefTag_Reference" FromRole="RefTag" ToRole="Reference" />
+          <NavigationProperty Name="Tag" Relationship="Leonteva.Kate.CursWorkModel.FK_RefTag_Tag" FromRole="RefTag" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Leonteva.Kate.CursWorkModel.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="author_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Leonteva.Kate.CursWorkModel.FK_Subscriber_User" FromRole="Subscriber" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Leonteva.Kate.CursWorkModel.FK_Subscriber_User1" FromRole="Subscriber" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RefTag" Relationship="Leonteva.Kate.CursWorkModel.FK_RefTag_Tag" FromRole="Tag" ToRole="RefTag" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nickname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Album" Relationship="Leonteva.Kate.CursWorkModel.FK_Album_User" FromRole="User" ToRole="Album" />
+          <NavigationProperty Name="Reference" Relationship="Leonteva.Kate.CursWorkModel.FK_Reference_User" FromRole="User" ToRole="Reference" />
+          <NavigationProperty Name="Role" Relationship="Leonteva.Kate.CursWorkModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Subscriber" Relationship="Leonteva.Kate.CursWorkModel.FK_Subscriber_User" FromRole="User" ToRole="Subscriber" />
+          <NavigationProperty Name="Subscriber1" Relationship="Leonteva.Kate.CursWorkModel.FK_Subscriber_User1" FromRole="User" ToRole="Subscriber" />
+        </EntityType>
+        <Association Name="FK_Album_User">
+          <End Type="Leonteva.Kate.CursWorkModel.User" Role="User" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.Album" Role="Album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Album">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumRef_Album">
+          <End Type="Leonteva.Kate.CursWorkModel.Album" Role="Album" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.AlbumRef" Role="AlbumRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Album">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlbumRef">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbumRef_Reference">
+          <End Type="Leonteva.Kate.CursWorkModel.Reference" Role="Reference" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.AlbumRef" Role="AlbumRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlbumRef">
+              <PropertyRef Name="ref_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_User">
+          <End Type="Leonteva.Kate.CursWorkModel.User" Role="User" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.Reference" Role="Reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reference">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefTag_Reference">
+          <End Type="Leonteva.Kate.CursWorkModel.Reference" Role="Reference" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.RefTag" Role="RefTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reference">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RefTag">
+              <PropertyRef Name="ref_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefTag_Tag">
+          <End Type="Leonteva.Kate.CursWorkModel.Tag" Role="Tag" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.RefTag" Role="RefTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RefTag">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Type="Leonteva.Kate.CursWorkModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_User">
+          <End Type="Leonteva.Kate.CursWorkModel.User" Role="User" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_User1">
+          <End Type="Leonteva.Kate.CursWorkModel.User" Role="User" Multiplicity="1" />
+          <End Type="Leonteva.Kate.CursWorkModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LeontevaKateCursWorkModelContainer" CdmEntityContainer="HikiaiEntities">
+          <EntitySetMapping Name="Album">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.Album">
+              <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlbumRef">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.AlbumRef">
+              <MappingFragment StoreEntitySet="AlbumRef">
+                <ScalarProperty Name="ref_id" ColumnName="ref_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reference">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.Reference">
+              <MappingFragment StoreEntitySet="Reference">
+                <ScalarProperty Name="ref_date" ColumnName="ref_date" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefTag">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.RefTag">
+              <MappingFragment StoreEntitySet="RefTag">
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="ref_id" ColumnName="ref_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriber">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.Subscriber">
+              <MappingFragment StoreEntitySet="Subscriber">
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="Leonteva.Kate.CursWorkModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
