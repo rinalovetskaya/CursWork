@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursWork.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace CursWork.View.Pages
     /// </summary>
     public partial class ThemeReferencePage : Page
     {
-        public ThemeReferencePage()
+        public ThemeReferencePage(Tag tag)
         {
             InitializeComponent();
+
+            RefLb.DataContext = App.selectedTag;
+            RefLb.ItemsSource = App.context.Reference.ToList();
+        }
+
+        private void RefLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

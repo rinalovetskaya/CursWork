@@ -1,0 +1,76 @@
+﻿<Page x:Class="CursWork.View.Pages.SelectedRefPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CursWork.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="798" 
+      d:DesignWidth="1291"
+      Title="SelectedRefPage"
+      Background="#F9DEC9">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height=".5*" />
+        </Grid.RowDefinitions>
+
+        <Button Name="BackBtn"
+                Content="⭠Назад"
+                Click="BackBtn_Click"
+                FontSize="30"
+                Width="350"
+                HorizontalAlignment="Left"/>
+
+        <Image Source="{Binding photo}"
+               Stretch="Uniform"
+               Name="SelectedRefImg"
+               Margin="10"
+               Height="Auto"
+               Width="Auto"
+               Grid.Row="1">
+        </Image>
+
+        <TextBlock Name="AuthorTbl"
+                   Grid.Row="2"
+                   FontSize="50"
+                   Text="{Binding User.nickname}"/>
+
+        <Grid Grid.Column="1"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height=".2*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding name}"
+                       HorizontalAlignment="Left"
+                       Name="NameTbl"
+                       Margin="20"
+                       FontSize="40"/>
+            <TextBlock Text="{Binding description}"
+                       HorizontalAlignment="Left"
+                       Name="DescTbl"
+                       Margin="20"
+                       FontSize="30"
+                       Grid.Row="1"
+                       VerticalAlignment="Top"
+                       TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding ref_date, StringFormat=dd.MM.yyyy}"
+                       Grid.Row="2"
+                       HorizontalAlignment="Left"
+                       Name="DateTbl"
+                       Margin="20 0"
+                       FontSize="20"/>
+
+        </Grid>
+
+    </Grid>
+</Page>

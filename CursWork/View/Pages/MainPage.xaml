@@ -11,9 +11,15 @@
 
     <Grid>
         <ListBox Name="RefLb"
+                 Loaded="RefLb_Loaded"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  SelectionChanged="MainLb_SelectionChanged"
                  Background="#F9DEC9">
+            <ListBox.Resources>
+                <Style TargetType="ScrollViewer">
+                    <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                </Style>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Width="240"

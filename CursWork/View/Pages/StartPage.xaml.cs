@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static CursWork.View.Windows.StartWindow;
 
 namespace CursWork.View.Pages
 {
@@ -36,17 +37,28 @@ namespace CursWork.View.Pages
                 App.enteredUser = user;
                 BasicWindow basicWindow = new BasicWindow();
                 basicWindow.Show();
-                StartWindow startWindow = new StartWindow();
-                startWindow.Close();
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window is StartWindow)
+                    {
+                        window.Close();
+                        break;
+                    }
+                }
             }
             else
             {
                 MessageBox.Show("Неправильный логин или пароль");
                 return;
             }
-
-            
-
         }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            string navigateUri = e.Uri.OriginalString;
+            Uri uri = new Uri(navigateUri, UriKind.Relative);
+            NavigationService?.Navigate(uri);
+        }
+
     }
 }

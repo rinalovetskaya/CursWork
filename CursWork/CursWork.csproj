@@ -64,44 +64,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Album.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\AlbumRef.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Hikiai.Context.cs">
+    <Compile Include="Model\CursModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hikiai.Context.tt</DependentUpon>
+      <DependentUpon>CursModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Hikiai.cs">
+    <Compile Include="Model\CursModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hikiai.tt</DependentUpon>
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Hikiai.Designer.cs">
+    <Compile Include="Model\CursModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hikiai.edmx</DependentUpon>
+      <DependentUpon>CursModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pack.cs">
+      <DependentUpon>CursModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PackRef.cs">
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Reference.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\RefTag.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Role.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
+      <DependentUpon>CursModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SavedRef.cs">
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subscriber.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Tag.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
-      <DependentUpon>Hikiai.tt</DependentUpon>
+      <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\AuthorsPage.xaml.cs">
       <DependentUpon>AuthorsPage.xaml</DependentUpon>
@@ -118,8 +118,17 @@
     <Compile Include="View\Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SelectedAuthorPage.xaml.cs">
+      <DependentUpon>SelectedAuthorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SelectedRefPage.xaml.cs">
+      <DependentUpon>SelectedRefPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
@@ -181,7 +190,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SelectedAuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SelectedRefPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,12 +241,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\Hikiai.edmx">
+    <EntityDeploy Include="Model\CursModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Hikiai.Designer.cs</LastGenOutput>
+      <LastGenOutput>CursModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Hikiai.edmx.diagram">
-      <DependentUpon>Hikiai.edmx</DependentUpon>
+    <None Include="Model\CursModel.edmx.diagram">
+      <DependentUpon>CursModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -247,16 +268,6 @@
     <Resource Include="Resources\user_search_icon_241965.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Hikiai.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Hikiai.Context.cs</LastGenOutput>
-      <DependentUpon>Hikiai.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Hikiai.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hikiai.edmx</DependentUpon>
-      <LastGenOutput>Hikiai.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\user_add_icon_242018.png" />
     <Resource Include="Resources\add_circle_icon_241409.png" />
@@ -271,6 +282,22 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\CursModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CursModel.edmx</DependentUpon>
+      <LastGenOutput>CursModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\CursModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CursModel.edmx</DependentUpon>
+      <LastGenOutput>CursModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\arrow_left_icon_241404.png" />
+    <Resource Include="Resources\heart_icon_241335.png" />
+    <Resource Include="Resources\info_circle_icon_241593.png" />
+    <Resource Include="Resources\scan_barcode_icon_241949.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

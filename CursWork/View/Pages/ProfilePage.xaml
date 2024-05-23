@@ -12,106 +12,12 @@
 
     <Grid>
         
-        <!--
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-
-            <Image Source="{Binding photo}"
-                   Stretch="UniformToFill"
-                   Width="200"
-                   Height="200">
-                <Image.Clip>
-                    <RectangleGeometry RadiusX="100" 
-                                       RadiusY="100"
-                                       Rect="0, 0, 200, 200"/>
-                </Image.Clip>
-            </Image>
-        </Grid>
-
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="6*" />
-            </Grid.RowDefinitions>
-
-            <Frame Name="MainProfFrm"
-                   Grid.Row="1"/>
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-
-                <Button BorderThickness="0"
-                        Name="YourRefBtn"
-                        Click="YourRefBtn_Click"
-                        Background="#E9B0A4">
-                    <Image Source="/Resources/category_icon_241630.png"/>
-                </Button>
-
-                <Button BorderThickness="0"
-                        Grid.Column="1"
-                        Name="NewRefBtn"
-                        Click="NewRefBtn_Click"
-                        Background="#E9B0A4">
-                    <Image Source="/Resources/add_circle_icon_241409.png" />
-                </Button>
-
-                <Button BorderThickness="0"
-                        Grid.Column="2"
-                        Name="SubAuthBtn"
-                        Click="SubAuthBtn_Click"
-                        Background="#E9B0A4">
-                    <Image Source="/Resources/user_add_icon_242018.png" />
-                </Button>
-
-                <Button BorderThickness="0"
-                        Grid.Column="3"
-                        Name="SaveRefBtn"
-                        Click="SaveRefBtn_Click"
-                        Background="#E9B0A4">
-                    <Image Source="/Resources/lovely_icon_241396.png" />
-                </Button>
-
-                <Button BorderThickness="0"
-                        Grid.Column="4"
-                        Name="SettingsBtn"
-                        Click="SettingsBtn_Click"
-                        Background="#E9B0A4">
-                    <Image Source="/Resources/setting_icon_241871.png" />
-                </Button>
-
-                <Button BorderThickness="0"
-                        Grid.Column="5"
-                        Name="EditProfBtn"
-                        Click="EditProfBtn_Click"
-                        Background="#E9B0A4">
-                    <Image Source="/Resources/edit_icon_241777.png" />
-                </Button>
-            </Grid>
-        </Grid>
-        -->
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="3*" />
-        </Grid.ColumnDefinitions>
-
-        <Grid>
+        <Grid Background="#FFE8E3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="1*" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CursWork.Model;
+using CursWork.View.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +32,7 @@ namespace CursWork.View.Pages
         private void Timer_Tick(object sender, EventArgs e)
         {
             WelcomeTbl.Visibility = Visibility.Visible;
+            SecTbl.Visibility = Visibility.Visible;
             timer.Stop();
         }
         private void WelcomeTbl_Initialized(object sender, EventArgs e)
@@ -47,6 +50,5 @@ namespace CursWork.View.Pages
                 NavigationService.Navigate(new View.Pages.StartPage());
             }
         }
-
     }
 }

@@ -12,20 +12,13 @@ namespace CursWork.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Album
+    public partial class PackRef
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Album()
-        {
-            this.AlbumRef = new HashSet<AlbumRef>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
-        public int user_id { get; set; }
+        public int pack_id { get; set; }
+        public int ref_id { get; set; }
     
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AlbumRef> AlbumRef { get; set; }
+        public virtual Pack Pack { get; set; }
+        public virtual Reference Reference { get; set; }
     }
 }

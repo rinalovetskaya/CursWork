@@ -17,7 +17,7 @@ namespace CursWork.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tag()
         {
-            this.RefTag = new HashSet<RefTag>();
+            this.Reference = new HashSet<Reference>();
         }
     
         public int id { get; set; }
@@ -25,6 +25,6 @@ namespace CursWork.Model
         public string photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RefTag> RefTag { get; set; }
+        public virtual ICollection<Reference> Reference { get; set; }
     }
 }

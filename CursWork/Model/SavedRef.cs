@@ -12,13 +12,13 @@ namespace CursWork.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class RefTag
+    public partial class SavedRef
     {
         public int id { get; set; }
         public int ref_id { get; set; }
-        public int tag_id { get; set; }
+        public int user_id { get; set; }
     
         public virtual Reference Reference { get; set; }
-        public virtual Tag Tag { get; set; }
+        public virtual User User { get; set; }
     }
 }

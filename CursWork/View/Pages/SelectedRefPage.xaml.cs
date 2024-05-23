@@ -17,24 +17,24 @@ using System.Windows.Shapes;
 namespace CursWork.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для SearchPage.xaml
+    /// Логика взаимодействия для SelectedRefPage.xaml
     /// </summary>
-    public partial class SearchPage : Page
+    public partial class SelectedRefPage : Page
     {
-        public SearchPage()
+        public SelectedRefPage()
         {
             InitializeComponent();
 
-            ThemeLb.ItemsSource = App.context.Tag.ToList();
+            SelectedRefImg.DataContext = App.selectedRef;
+            AuthorTbl.DataContext = App.selectedRef;
+            NameTbl.DataContext = App.selectedRef;
+            DescTbl.DataContext = App.selectedRef;
+            DateTbl.DataContext = App.selectedRef;
         }
 
-        private void ThemeLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            Tag tag = ThemeLb.SelectedItem as Tag;
-            if (tag != null)
-            {
-                NavigationService.Navigate(new ThemeReferencePage(tag));
-            }
+            NavigationService.GoBack();
         }
     }
 }

@@ -15,8 +15,16 @@ namespace CursWork
     public partial class App : Application
     {
 
-        public static HikiaiEntities context = new HikiaiEntities();
+        public static CursWorkEntities context = new CursWorkEntities();
 
         public static User enteredUser;
+
+        public static User selectedAuthor;
+
+        public static Tag selectedTag;
+
+        public static Reference selectedRef;
+
+        
     }
 }

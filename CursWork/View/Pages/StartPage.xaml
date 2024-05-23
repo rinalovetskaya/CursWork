@@ -16,7 +16,7 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height=".5*" />
             <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="1.5*" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Hikiai"
@@ -56,6 +56,24 @@
                 Width="600"
                 Content="Войти"
                 FontSize="60"/>
+
+        <StackPanel Grid.Row="5"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+            <TextBlock Text="Ещё не зарегистрированы?"
+                       FontSize="30"/>
+            <TextBlock FontSize="40">
+                <Hyperlink NavigateUri="RegistrationPage.xaml" 
+                           RequestNavigate="Hyperlink_RequestNavigate">
+                    <Run Foreground="#2d226e">
+                           Зарегистрируйтесь
+                    </Run>
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+        
+        
 
 
     </Grid>

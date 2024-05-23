@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CursWork.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +17,14 @@ using System.Windows.Shapes;
 
 namespace CursWork.View.Pages
 {
+
     /// <summary>
     /// Логика взаимодействия для MainPage.xaml
     /// </summary>
     public partial class MainPage : Page
     {
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -27,9 +32,21 @@ namespace CursWork.View.Pages
             RefLb.ItemsSource = App.context.Reference.ToList();
         }
 
+
         private void MainLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Reference reference = RefLb.SelectedItem as Reference;
 
+            if (reference != null)
+            {
+                App.selectedRef = reference;
+                NavigationService.Navigate(new SelectedRefPage());
+            }
+        }
+
+        private void RefLb_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

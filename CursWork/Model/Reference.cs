@@ -17,21 +17,23 @@ namespace CursWork.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Reference()
         {
-            this.AlbumRef = new HashSet<AlbumRef>();
-            this.RefTag = new HashSet<RefTag>();
+            this.PackRef = new HashSet<PackRef>();
+            this.SavedRef = new HashSet<SavedRef>();
         }
     
         public int id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public string photo { get; set; }
-        public int author_id { get; set; }
+        public byte[] photo { get; set; }
+        public Nullable<int> author_id { get; set; }
         public System.DateTime ref_date { get; set; }
+        public Nullable<int> tag_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AlbumRef> AlbumRef { get; set; }
+        public virtual ICollection<PackRef> PackRef { get; set; }
+        public virtual Tag Tag { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RefTag> RefTag { get; set; }
+        public virtual ICollection<SavedRef> SavedRef { get; set; }
     }
 }

@@ -20,11 +20,5 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="PasswordChar" Value="♥" />
-        <Style.Resources>
-            <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="20"/>
-                <Setter Property="BorderThickness" Value="0"/>
-            </Style>
-        </Style.Resources>
     </Style>
 </ResourceDictionary>

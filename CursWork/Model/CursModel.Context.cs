@@ -13,10 +13,10 @@ namespace CursWork.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HikiaiEntities : DbContext
+    public partial class CursWorkEntities : DbContext
     {
-        public HikiaiEntities()
-            : base("name=HikiaiEntities")
+        public CursWorkEntities()
+            : base("name=CursWorkEntities")
         {
         }
     
@@ -25,11 +25,11 @@ namespace CursWork.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Album> Album { get; set; }
-        public virtual DbSet<AlbumRef> AlbumRef { get; set; }
+        public virtual DbSet<Pack> Pack { get; set; }
+        public virtual DbSet<PackRef> PackRef { get; set; }
         public virtual DbSet<Reference> Reference { get; set; }
-        public virtual DbSet<RefTag> RefTag { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<SavedRef> SavedRef { get; set; }
         public virtual DbSet<Subscriber> Subscriber { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
         public virtual DbSet<User> User { get; set; }

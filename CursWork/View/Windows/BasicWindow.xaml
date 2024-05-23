@@ -25,7 +25,6 @@
                Grid.Row="1"
                Grid.Column="1"
                NavigationUIVisibility="Hidden"/>
-
         <!--МЕНЮ-->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -70,7 +69,6 @@
                        Width="100"/>
             </Button>
         </Grid>
-        
         <!--ВЕРХНЯЯ СТРОКА-->
         <Grid Grid.ColumnSpan="2"
               Background="#E9B0A4">

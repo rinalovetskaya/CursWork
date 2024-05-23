@@ -17,8 +17,9 @@ namespace CursWork.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Album = new HashSet<Album>();
+            this.Pack = new HashSet<Pack>();
             this.Reference = new HashSet<Reference>();
+            this.SavedRef = new HashSet<SavedRef>();
             this.Subscriber = new HashSet<Subscriber>();
             this.Subscriber1 = new HashSet<Subscriber>();
         }
@@ -30,13 +31,15 @@ namespace CursWork.Model
         public string phone { get; set; }
         public string password { get; set; }
         public string status { get; set; }
-        public string photo { get; set; }
+        public byte[] photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Album> Album { get; set; }
+        public virtual ICollection<Pack> Pack { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reference> Reference { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SavedRef> SavedRef { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscriber> Subscriber { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
