@@ -30,11 +30,39 @@ namespace CursWork.View.Pages
             NameTbl.DataContext = App.selectedRef;
             DescTbl.DataContext = App.selectedRef;
             DateTbl.DataContext = App.selectedRef;
+
+
+
+        }
+
+        private void BlockMethod()
+        {
+
+            if (SaveRefBtn != null)
+            {
+                SaveRefBtn.IsEnabled = false;
+            }
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+
+
+        private void SaveRefBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SavedRef savedRef = new SavedRef()
+            {
+                user_id = App.enteredUser.id,
+                ref_id = App.selectedRef.id
+            };
+
+            App.context.SavedRef.Add(savedRef);
+            App.context.SaveChanges();
+
+            BlockMethod();
         }
     }
 }

@@ -21,17 +21,36 @@ namespace CursWork.View.Pages
     /// </summary>
     public partial class ThemeReferencePage : Page
     {
-        public ThemeReferencePage(Tag tag)
+        public ThemeReferencePage()
         {
             InitializeComponent();
 
             RefLb.DataContext = App.selectedTag;
-            RefLb.ItemsSource = App.context.Reference.ToList();
+            RefLb.ItemsSource = App.context.Reference.Where(s=>s.tag_id == App.selectedTag.id).ToList();
         }
 
         private void RefLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Reference reference = RefLb.SelectedItem as Reference;
 
+            if (reference != null)
+            {
+                App.selectedRef = reference;
+                NavigationService.Navigate(new SelectedRefPage());
+            }
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTb.Text != string.Empty)
+            {
+                RefLb.ItemsSource = App.context.Reference.Where(s => s.tag_id == App.selectedTag.id).Where(x => x.name.ToLower().Contains(SearchTb.Text.ToLower())).ToList();
+
+            }
+            else
+            {
+                RefLb.ItemsSource = App.context.Reference.Where(s => s.tag_id == App.selectedTag.id).ToList();
+            }
         }
     }
 }

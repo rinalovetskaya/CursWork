@@ -9,11 +9,37 @@
       d:DesignWidth="1291"
       Title="AuthorsPage">
 
-    <Grid>
+    <Grid Background="#F9DEC9">
+        <Grid.RowDefinitions>
+        <RowDefinition Height=".15*" />
+        <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBox Width="600"
+                 HorizontalAlignment="Left"
+                 Margin="20 0 0 0"
+                 FontSize="30"
+                 Height="70"
+                 Name="SearchTb"
+                 TextChanged="SearchTb_TextChanged"/>
+        <Button Height="70"
+                Width="100"
+                Background="White"
+                BorderThickness="0">
+            <Image Source="/Resources/search_status_icon_242114.png"
+                   Opacity=".7"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    
         <ListBox Name="AuthorsLb"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  SelectionChanged="AuthorsLb_SelectionChanged"
-                 Background="#F9DEC9">
+                 Background="#F9DEC9"
+                 Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Width="200"

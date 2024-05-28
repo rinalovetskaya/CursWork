@@ -45,8 +45,17 @@ namespace CursWork.View.Windows
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            BasicFrm.Navigate(new View.Pages.ProfilePage());
-            PageTextTbl.Text = "Профиль";
+            if (App.enteredUser.role_id == 1)
+            {
+                BasicFrm.Navigate(new View.Pages.ProfilePage());
+                PageTextTbl.Text = "Профиль";
+            }
+            if (App.enteredUser.role_id == 2)
+            {
+                BasicFrm.Navigate(new View.Pages.AuthorsProfilePage());
+                PageTextTbl.Text = "Профиль";
+            }
+
         }
 
     }

@@ -19,6 +19,7 @@ namespace CursWork.Model
         {
             this.Pack = new HashSet<Pack>();
             this.Reference = new HashSet<Reference>();
+            this.SavedPack = new HashSet<SavedPack>();
             this.SavedRef = new HashSet<SavedRef>();
             this.Subscriber = new HashSet<Subscriber>();
             this.Subscriber1 = new HashSet<Subscriber>();
@@ -38,6 +39,8 @@ namespace CursWork.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reference> Reference { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SavedPack> SavedPack { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SavedRef> SavedRef { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

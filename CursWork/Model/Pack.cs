@@ -18,14 +18,18 @@ namespace CursWork.Model
         public Pack()
         {
             this.PackRef = new HashSet<PackRef>();
+            this.SavedPack = new HashSet<SavedPack>();
         }
     
         public int id { get; set; }
         public string name { get; set; }
         public int user_id { get; set; }
+        public string photo { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PackRef> PackRef { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SavedPack> SavedPack { get; set; }
     }
 }

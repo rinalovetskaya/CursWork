@@ -91,10 +91,16 @@
     <Compile Include="Model\Role.cs">
       <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\SavedPack.cs">
+      <DependentUpon>CursModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\SavedRef.cs">
       <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subscriber.cs">
+      <DependentUpon>CursModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Tag.cs">
@@ -103,11 +109,32 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>CursModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\AuthorsPackPage.xaml.cs">
+      <DependentUpon>AuthorsPackPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AuthorsPage.xaml.cs">
       <DependentUpon>AuthorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\AuthorsProfilePage.xaml.cs">
       <DependentUpon>AuthorsProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\AuthorsRefPage.xaml.cs">
+      <DependentUpon>AuthorsRefPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\EditAuthorProfilePage.xaml.cs">
+      <DependentUpon>EditAuthorProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\EditProfilePage.xaml.cs">
+      <DependentUpon>EditProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FavAuthorProfilePage.xaml.cs">
+      <DependentUpon>FavAuthorProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FavourAuthorPage.xaml.cs">
+      <DependentUpon>FavourAuthorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FavProfilePage.xaml.cs">
+      <DependentUpon>FavProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\FirstPage.xaml.cs">
       <DependentUpon>FirstPage.xaml</DependentUpon>
@@ -115,11 +142,29 @@
     <Compile Include="View\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\NewPackPage.xaml.cs">
+      <DependentUpon>NewPackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\NewRefPage.xaml.cs">
+      <DependentUpon>NewRefPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PackAuthorProfilePage.xaml.cs">
+      <DependentUpon>PackAuthorProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\RefAuthorProfilePage.xaml.cs">
+      <DependentUpon>RefAuthorProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SavedPackAuthorPage.xaml.cs">
+      <DependentUpon>SavedPackAuthorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SavedPackProfilePage.xaml.cs">
+      <DependentUpon>SavedPackProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
@@ -127,11 +172,29 @@
     <Compile Include="View\Pages\SelectedAuthorPage.xaml.cs">
       <DependentUpon>SelectedAuthorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\SelectedAuthorsSavedRefPage.xaml.cs">
+      <DependentUpon>SelectedAuthorsSavedRefPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SelectedPackOnAuthorPage.xaml.cs">
+      <DependentUpon>SelectedPackOnAuthorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SelectedPackPage.xaml.cs">
+      <DependentUpon>SelectedPackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SelectedRefOnAuthorPage.xaml.cs">
+      <DependentUpon>SelectedRefOnAuthorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\SelectedRefPage.xaml.cs">
       <DependentUpon>SelectedRefPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SubAuthorPage.xaml.cs">
+      <DependentUpon>SubAuthorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SubProfilePage.xaml.cs">
+      <DependentUpon>SubProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\ThemeReferencePage.xaml.cs">
       <DependentUpon>ThemeReferencePage.xaml</DependentUpon>
@@ -170,11 +233,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\AuthorsPackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\AuthorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\AuthorsProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\AuthorsRefPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\EditAuthorProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\EditProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FavAuthorProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FavourAuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FavProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,11 +277,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\NewPackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\NewRefPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PackAuthorProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\RefAuthorProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SavedPackAuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SavedPackProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,11 +317,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\SelectedAuthorsSavedRefPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SelectedPackOnAuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SelectedPackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SelectedRefOnAuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\SelectedRefPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SubAuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SubProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,7 +416,6 @@
     <Resource Include="Resources\heart_edit_icon_241398.png" />
     <Resource Include="Resources\heart_remove_icon_241423.png" />
     <Resource Include="Resources\lovely_icon_241396.png" />
-    <Resource Include="Resources\setting_icon_241871.png" />
     <Resource Include="Resources\user_cirlce_add_icon_242050.png" />
   </ItemGroup>
   <ItemGroup>
@@ -294,6 +432,8 @@
       <DependentUpon>CursModel.edmx</DependentUpon>
       <LastGenOutput>CursModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\user_tick_icon_242107.png" />
+    <Resource Include="Resources\logout_icon_241360.png" />
     <Resource Include="Resources\arrow_left_icon_241404.png" />
     <Resource Include="Resources\heart_icon_241335.png" />
     <Resource Include="Resources\info_circle_icon_241593.png" />

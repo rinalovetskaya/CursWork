@@ -30,11 +30,28 @@ namespace CursWork.View.Pages
 
         private void ThemeLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             Tag tag = ThemeLb.SelectedItem as Tag;
+
             if (tag != null)
             {
-                NavigationService.Navigate(new ThemeReferencePage(tag));
+                App.selectedTag = tag;
+                NavigationService.Navigate(new ThemeReferencePage());
             }
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTb.Text != string.Empty)
+            {
+                ThemeLb.ItemsSource = App.context.Tag.Where(x => x.name.ToLower().Contains(SearchTb.Text.ToLower())).ToList();
+
+            }
+            else
+            {
+                ThemeLb.ItemsSource = App.context.Tag.ToList();
+            }
+            
         }
     }
 }

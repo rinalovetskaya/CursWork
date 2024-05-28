@@ -103,7 +103,7 @@ namespace CursWork.View.Pages
                 nickname = NickTb.Text,
                 email = EmailTb.Text,
                 phone = PhoneTb.Text,
-                status = StatusCmb.Text,
+                role_id = StatusCmb.SelectedIndex + 1,
                 password = PasswordPb.Password
             };
 

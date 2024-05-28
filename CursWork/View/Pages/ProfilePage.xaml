@@ -17,9 +17,16 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
+        <Frame Name="MainFrm"
+               Grid.Column="1"/>
+
         <Grid Background="#FFE8E3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
@@ -50,8 +57,132 @@
                        TextAlignment="Center"
                        TextWrapping="Wrap"
                        Text="{Binding status}"/>
-            
-            
+
+            <Button BorderThickness="0"
+                    Grid.Row="1" 
+                    Name="SunBtn"
+                    Click="SunBtn_Click"
+                    Background="#FFE8E3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="\Resources\user_tick_icon_242107.png"
+                           Width="80"
+                           Margin="0 0 300 0"/>
+                    <TextBlock Grid.ColumnSpan="2" 
+                   Text="Подписки" 
+                   TextWrapping="WrapWithOverflow"
+                   VerticalAlignment="Center" 
+                   FontSize="30"
+                   Margin="20 0 0 0"
+                   Width="240"
+                   FontWeight="SemiBold"
+                   HorizontalAlignment="Center"/>
+                </Grid>
+            </Button>
+
+            <Button BorderThickness="0"
+                    Grid.Row="2"
+                    Name="FavBtn"
+                    Click="FavBtn_Click"
+                    Background="#FFE8E3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="\Resources\heart_icon_241335.png" 
+                           Width="80"
+                           Margin="0 0 300 0"/>
+                    <TextBlock Grid.ColumnSpan="2" 
+                               Text="Избранное" 
+                               TextWrapping="WrapWithOverflow"
+                               VerticalAlignment="Center" 
+                               FontSize="30"
+                               Margin="20 0 0 0"
+                               Width="240"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+                </Grid>
+            </Button>
+
+            <Button BorderThickness="0"
+                    Grid.Row="3"
+                    Name="SavedPackBtn"
+                    Click="SavedPackBtn_Click"
+                    Background="#FFE8E3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="\Resources\scan_barcode_icon_241949.png" 
+                           Width="80"
+                           Margin="0 0 300 0"/>
+                    <TextBlock Grid.ColumnSpan="2" 
+                               Text="Сохранённые паки" 
+                               TextWrapping="WrapWithOverflow"
+                               VerticalAlignment="Center" 
+                               FontSize="30"
+                               Margin="20 0 0 0"
+                               Width="240"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+                </Grid>
+            </Button>
+
+            <Button BorderThickness="0"
+                    Grid.Row="4"
+                    Name="EditProfileBtn"
+                    Click="EditProfileBtn_Click"
+                    Background="#FFE8E3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="\Resources\edit_icon_241475.png"
+                           Width="80"
+                           Margin="0 0 300 0"/>
+                    <TextBlock Grid.ColumnSpan="2" 
+                               Text="Редактировать профиль" 
+                               TextWrapping="WrapWithOverflow"
+                               Width="240"
+                               Margin="20 0 0 0"
+                               VerticalAlignment="Center" 
+                               FontSize="30"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+                </Grid>
+            </Button>
+
+
+        <Button BorderThickness="0"
+                    Grid.Row="5"
+                    Name="ExitBtn"
+                    Click="ExitBtn_Click"
+                    Background="#FFE8E3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/Resources/logout_icon_241360.png" 
+                           Width="80"
+                           Margin="0 0 300 0"/>
+                    <TextBlock Grid.ColumnSpan="2" 
+                               Text="Выйти" 
+                               VerticalAlignment="Center" 
+                               FontSize="30"
+                               
+                               Margin="20 0 0 0"
+                               Width="240"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+                </Grid>
+            </Button>
 
         </Grid>
         

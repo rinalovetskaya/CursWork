@@ -25,6 +25,10 @@ namespace CursWork
 
         public static Reference selectedRef;
 
-        
+        public static Pack selectedPack;
+
+        public static PackRef selectedPackRef;
+
+
     }
 }

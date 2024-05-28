@@ -20,7 +20,9 @@
                  HorizontalAlignment="Left"
                  Margin="20 0 0 0"
                  FontSize="30"
-                 Height="70"/>
+                 Height="70"
+                 Name="SearchTb"
+                 TextChanged="SearchTb_TextChanged"/>
         <Button Height="70"
                 Width="100"
                 Background="White"
@@ -40,6 +42,11 @@
                  SelectionChanged="ThemeLb_SelectionChanged"
                  Background="#F9DEC9"
                  Grid.Row="1">
+            <ListBox.Resources>
+                <Style TargetType="ScrollViewer">
+                    <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                </Style>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Width="300"

@@ -4,22 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="625472de95b244d38bcf10662c97eeea" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="CursWorkModel.Pack" Width="1.5" PointX="5.25" PointY="9.75" />
-        <EntityTypeShape EntityType="CursWorkModel.PackRef" Width="1.5" PointX="10.5" PointY="6.875" />
-        <EntityTypeShape EntityType="CursWorkModel.Reference" Width="1.5" PointX="8.25" PointY="4" />
-        <EntityTypeShape EntityType="CursWorkModel.Role" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="CursWorkModel.SavedRef" Width="1.5" PointX="10.5" PointY="3.5" />
-        <EntityTypeShape EntityType="CursWorkModel.Subscriber" Width="1.5" PointX="5.25" PointY="3.25" />
-        <EntityTypeShape EntityType="CursWorkModel.Tag" Width="1.5" PointX="6" PointY="6.625" />
-        <EntityTypeShape EntityType="CursWorkModel.User" Width="1.5" PointX="3" PointY="3.75" />
-        <AssociationConnector Association="CursWorkModel.FK_Album_User" />
+      <Diagram DiagramId="625472de95b244d38bcf10662c97eeea" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="CursWorkModel.Pack" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="CursWorkModel.PackRef" Width="1.5" PointX="7.5" PointY="8" />
+        <EntityTypeShape EntityType="CursWorkModel.Reference" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="CursWorkModel.Role" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="CursWorkModel.SavedPack" Width="1.5" PointX="7.5" PointY="11.25" />
+        <EntityTypeShape EntityType="CursWorkModel.SavedRef" Width="1.5" PointX="7.5" PointY="4.75" />
+        <EntityTypeShape EntityType="CursWorkModel.Subscriber" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="CursWorkModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CursWorkModel.Tag" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="CursWorkModel.User" Width="1.5" PointX="3" PointY="5.125" />
         <AssociationConnector Association="CursWorkModel.FK_AlbumRef_Album" />
+        <AssociationConnector Association="CursWorkModel.FK_Pack_User" />
+        <AssociationConnector Association="CursWorkModel.FK_SavedPack_Pack" />
         <AssociationConnector Association="CursWorkModel.FK_AlbumRef_Reference" />
         <AssociationConnector Association="CursWorkModel.FK_Reference_Tag" />
         <AssociationConnector Association="CursWorkModel.FK_Reference_User" />
         <AssociationConnector Association="CursWorkModel.FK_SavedRef_Reference" />
         <AssociationConnector Association="CursWorkModel.FK_User_Role" />
+        <AssociationConnector Association="CursWorkModel.FK_SavedPack_User" />
         <AssociationConnector Association="CursWorkModel.FK_SavedRef_User" />
         <AssociationConnector Association="CursWorkModel.FK_Subscriber_User" />
         <AssociationConnector Association="CursWorkModel.FK_Subscriber_User1" />

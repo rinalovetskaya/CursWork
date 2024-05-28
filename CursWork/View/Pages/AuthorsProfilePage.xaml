@@ -5,10 +5,294 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CursWork.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="798" 
+      d:DesignWidth="1291"
       Title="AuthorsProfilePage">
 
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="7*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.RowSpan="2"
+                  Background="#FFE8E3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Image Source="{Binding photo}"
+                       Stretch="UniformToFill"
+                       Width="200"
+                       Name="UserImg"
+                       Height="200"
+                       Margin="0 0 0 50">
+                    <Image.Clip>
+                        <RectangleGeometry RadiusX="100" 
+                               RadiusY="100"
+                               Rect="0, 0, 200, 200"/>
+                    </Image.Clip>
+                </Image>
+
+                <TextBlock Name="NickTbl"
+                           Margin="0 150 0 0"
+                           HorizontalAlignment="Center"
+                           FontSize="25"
+                           TextAlignment="Center"
+                           Text="{Binding nickname}"/>
+
+                <TextBlock Name="StatTbl"
+                           Margin="0 250 0 0"
+                           HorizontalAlignment="Center"
+                           FontSize="15"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Text="{Binding status}"/>
+
+                <Button BorderThickness="0"
+                        Grid.Row="1" 
+                        Name="SunBtn"
+                        Click="SunBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\user_tick_icon_242107.png"
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Подписки" 
+                                   TextWrapping="WrapWithOverflow"
+                                   VerticalAlignment="Center" 
+                                   FontSize="30"
+                                   Margin="20 0 0 0"
+                                   Width="240"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+
+                <Button BorderThickness="0"
+                        Grid.Row="2"
+                        Name="SavedPackBtn"
+                        Click="SavedPackBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\scan_barcode_icon_241949.png" 
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Сохранённые паки" 
+                                   TextWrapping="WrapWithOverflow"
+                                   VerticalAlignment="Center" 
+                                   FontSize="30"
+                                   Margin="20 0 0 0"
+                                   Width="240"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button BorderThickness="0"
+                        Grid.Row="3"
+                        Name="EditProfileBtn"
+                        Click="EditProfileBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\edit_icon_241475.png"
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Редактировать профиль" 
+                                   TextWrapping="WrapWithOverflow"
+                                   Width="240"
+                                   Margin="20 0 0 0"
+                                   VerticalAlignment="Center" 
+                                   FontSize="30"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button BorderThickness="0"
+                        Grid.Row="4"
+                        Name="NewRefBtn"
+                        Click="NewRefBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Resources/gallery_icon_241669.png" 
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Добавить референс" 
+                                   VerticalAlignment="Center" 
+                                   TextWrapping="WrapWithOverflow"
+                                   FontSize="30"
+                                   Margin="20 0 0 0"
+                                   Width="240"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button BorderThickness="0"
+                        Grid.Row="5"
+                        Name="NewPackBtn"
+                        Click="NewPackBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\scan_barcode_icon_241949.png"
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Добавить пак" 
+                                   VerticalAlignment="Center" 
+                                   FontSize="30"
+                                   Margin="20 0 0 0"
+                                   Width="240"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+
+                <Button BorderThickness="0"
+                        Grid.Row="6"
+                        Name="ExitBtn"
+                        Click="ExitBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Resources/logout_icon_241360.png" 
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Выйти" 
+                                   VerticalAlignment="Center" 
+                                   FontSize="30"
+                                   Margin="20 0 0 0"
+                                   Width="240"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+            </Grid>
+
+            <Grid Grid.Column="1" 
+                  Background="#FFE8E3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button BorderThickness="0" 
+                        Name="AuthorRefBtn"
+                        Click="AuthorRefBtn_Click"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\category_icon_241630.png" 
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Референсы" 
+                                   VerticalAlignment="Center" 
+                                   FontSize="40"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+
+                <Button BorderThickness="0" 
+                        Name="AuthorPackBtn"
+                        Click="AuthorPackBtn_Click"
+                        Grid.Column="1"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\scan_barcode_icon_241949.png" 
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Паки"
+                                   VerticalAlignment="Center" 
+                                   FontSize="40"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+
+                <Button BorderThickness="0" 
+                        Name="FavourBtn"
+                        Click="FavourBtn_Click"
+                        Grid.Column="2"
+                        Background="#FFE8E3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="\Resources\heart_icon_241335.png" 
+                               Width="80"
+                               Margin="0 0 300 0"/>
+                        <TextBlock Grid.ColumnSpan="2" 
+                                   Text="Избранное"
+                                   VerticalAlignment="Center" 
+                                   FontSize="40"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+            </Grid>
+
+            <Frame Name="MainFrm"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+
+        </Grid>
     </Grid>
 </Page>

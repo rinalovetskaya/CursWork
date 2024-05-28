@@ -24,7 +24,7 @@ namespace CursWork.Model
         public int id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public byte[] photo { get; set; }
+        public string photo { get; set; }
         public Nullable<int> author_id { get; set; }
         public System.DateTime ref_date { get; set; }
         public Nullable<int> tag_id { get; set; }

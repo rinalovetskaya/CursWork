@@ -29,8 +29,10 @@ namespace CursWork.Model
         public virtual DbSet<PackRef> PackRef { get; set; }
         public virtual DbSet<Reference> Reference { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<SavedPack> SavedPack { get; set; }
         public virtual DbSet<SavedRef> SavedRef { get; set; }
         public virtual DbSet<Subscriber> Subscriber { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
