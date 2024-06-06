@@ -30,14 +30,10 @@ namespace CursWork.View.Pages
             NameTbl.DataContext = App.selectedRef;
             DescTbl.DataContext = App.selectedRef;
             DateTbl.DataContext = App.selectedRef;
-
-
-
         }
 
         private void BlockMethod()
         {
-
             if (SaveRefBtn != null)
             {
                 SaveRefBtn.IsEnabled = false;

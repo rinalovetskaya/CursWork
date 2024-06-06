@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="#908F8C" />
+        <Setter Property="FontFamily" Value="candara" />
+        <Setter Property="Foreground" Value="#3A405A" />
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+</ResourceDictionary>

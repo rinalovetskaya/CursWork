@@ -44,9 +44,5 @@ namespace CursWork.View.Pages
             }
         }
 
-        private void RefLb_Loaded(object sender, RoutedEventArgs e)
-        {
-           
-        }
     }
 }

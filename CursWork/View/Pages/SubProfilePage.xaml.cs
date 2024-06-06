@@ -1,4 +1,5 @@
 ﻿using CursWork.Model;
+using CursWork.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,13 @@ namespace CursWork.View.Pages
 
         private void AuthorsLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            User author = AuthorsLb.SelectedItem as User;
 
+            if (author != null)
+            {
+                App.selectedAuthor = author;
+                NavigationService.Navigate(new SelectedAuthorPage());
+            }
         }
     }
 }

@@ -7,61 +7,63 @@
       mc:Ignorable="d" 
       d:DesignHeight="798" 
       d:DesignWidth="1291"
-      Title="MainPage">
+      Title="MainPage"
+      Background="#93A368">
 
     <Grid>
         <ListBox Name="RefLb"
-                 Loaded="RefLb_Loaded"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                 SelectionChanged="MainLb_SelectionChanged"
-                 Background="#F9DEC9">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.Resources>
                 <Style TargetType="ScrollViewer">
-                    <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                    <Setter Property="VerticalScrollBarVisibility" 
+                            Value="Hidden"/>
                 </Style>
             </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border Width="240"
-                            Height="350"
+                    <Border Width="400"
+                            Height="150"
                             BorderBrush="#E9B0A4"
-                            BorderThickness="2"
+                            BorderThickness="0"
                             CornerRadius="15">
                         <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="2*" />
-                                <RowDefinition Height="3*" />
-                                <RowDefinition Height=".5*" />
-                                <RowDefinition Height=".5*" />
-                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
 
                             <Image Source="{Binding photo}"
                                    Grid.RowSpan="2"
-                                   Stretch="UniformToFill">
-                                <Image.Clip>
-                                    <RectangleGeometry RadiusX="15" 
-                                                       RadiusY="15"
-                                                       Rect="0, 0, 235, 300"/>
-                                </Image.Clip>
-                            </Image>
+                                   Stretch="UniformToFill"/>
 
-                            <Border Grid.Row="2">
-                                <TextBlock Text="{Binding name}"
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="3*" />
+                                </Grid.RowDefinitions>
+
+
+                                <Border>
+                                    <TextBlock Text="{Binding name}"
                                            FontSize="15"
                                            TextWrapping="Wrap"
                                            TextAlignment="Center"
                                            HorizontalAlignment="Center"
                                            FontWeight="SemiBold"/>
-                            </Border>
+                                </Border>
 
-                            <Border Grid.Row="3">
-                                <TextBlock Text="{Binding User.nickname}"
+
+                                <Border Grid.Row="1">
+                                    <TextBlock Text="{Binding }"
                                            FontSize="15"
                                            TextWrapping="Wrap"
                                            TextAlignment="Center"
                                            HorizontalAlignment="Center"
                                            FontWeight="SemiBold"/>
-                            </Border>
+                                </Border>
+
+                            </Grid>
 
 
                         </Grid>

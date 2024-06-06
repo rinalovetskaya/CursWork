@@ -1,0 +1,120 @@
+﻿<Page x:Class="Diplom.View.Pages.EditPartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="704.04"
+      d:DesignWidth="1072.71428571429" 
+      Background="#B1B1B1">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Назад"
+                FontSize="40"
+                Name="BackBtn"
+                Click="BackBtn_Click"
+                Margin="10"/>
+
+        <Border Grid.Row="1"
+                Margin="20"
+                BorderBrush="White"
+                BorderThickness="5">
+            <Grid>
+                <Image Name="imageControl" 
+                       Stretch="UniformToFill"/>
+                <TextBlock VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="Загрузить фото участника (не обязательно)"
+                           TextWrapping="WrapWithOverflow"
+                           Width="300"
+                           FontSize="30"
+                           Name="PhotoTbl"/>
+                <Button Click="Button_Click"
+                        Opacity="0"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <TextBox Margin="10 10 5 10" 
+                     Name="SurnameTb"
+                     Text="Фамилия"
+                     FontSize="40"
+                     GotFocus="SurnameTb_GotFocus"
+                     LostFocus="SurnameTb_LostFocus"/>
+            <TextBox Margin="10 10 5 10"
+                     Grid.Row="1"
+                     Name="NameTb"
+                     Text="Имя"
+                     FontSize="40"
+                     GotFocus="NameTb_GotFocus"
+                     LostFocus="NameTb_LostFocus"/>
+            <TextBox Margin="10 10 5 10"
+                     Grid.Row="2"
+                     Name="PatrTb"
+                     Text="Отчество"
+                     FontSize="40"
+                     GotFocus="PatrTb_GotFocus"
+                     LostFocus="PatrTb_LostFocus"/>
+
+            <ComboBox Grid.Column="1"
+                      Name="GenderCmb"
+                      FontSize="40"
+                      Margin="5 10 10 10"/>
+
+            <ComboBox Grid.Row="1"
+                      Grid.Column="1"
+                      Name="RankCmb"
+                      FontSize="40"
+                      Margin="5 10 10 10"/>
+
+            <TextBox Margin="10"
+                     Grid.Row="3"
+                     Grid.ColumnSpan="2"
+                     Text="Описание"
+                     VerticalContentAlignment="Top"
+                     TextWrapping="Wrap"
+                     FontSize="40"
+                     Name="DescTb"
+                     GotFocus="DescTb_GotFocus"
+                     LostFocus="DescTb_LostFocus"/>
+
+        </Grid>
+
+        <Button Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin="10"
+                Content="Сохранить"
+                Name="SaveBtn"
+                Click="SaveBtn_Click"
+                Width="450"
+                FontSize="40"/>
+
+
+    </Grid>
+</Page>

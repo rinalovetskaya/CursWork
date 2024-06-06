@@ -134,7 +134,7 @@
                 Name="RegBtn"
                 Click="RegBtn_Click"/>
         
-        <TextBlock Text="Ещё не зарегистрированы?"
+        <TextBlock Text="Уже зарегистрированы?"
                    FontSize="30"
                    Grid.Row="8"/>
         

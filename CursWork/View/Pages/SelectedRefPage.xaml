@@ -54,12 +54,12 @@
             <TextBlock Text="{Binding name}"
                        HorizontalAlignment="Left"
                        Name="NameTbl"
-                       Margin="20"
+                       Margin="50"
                        FontSize="40"/>
             <TextBlock Text="{Binding description}"
                        HorizontalAlignment="Left"
                        Name="DescTbl"
-                       Margin="20"
+                       Margin="50"
                        FontSize="30"
                        Grid.Row="1"
                        VerticalAlignment="Top"
@@ -68,7 +68,7 @@
                        Grid.Row="2"
                        HorizontalAlignment="Left"
                        Name="DateTbl"
-                       Margin="20 0"
+                       Margin="50 0"
                        FontSize="20"/>
 
         </Grid>
