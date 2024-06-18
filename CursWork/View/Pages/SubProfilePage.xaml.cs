@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static CursWork.View.Windows.BasicWindow;
 
 namespace CursWork.View.Pages
 {
@@ -26,18 +27,21 @@ namespace CursWork.View.Pages
         {
             InitializeComponent();
 
-            AuthorsLb.ItemsSource = App.context.User.Where(u => App.context.Subscriber.Any(s => s.author_id == u.id)).ToList();
+            AuthorsLb.ItemsSource = App.context.User.Where(u => App.context.Subscriber.Any(s => s.author_id == u.id && s.user_id == App.enteredUser.id)).ToList();
         }
 
         private void AuthorsLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            User author = AuthorsLb.SelectedItem as User;
+            var Author = AuthorsLb.SelectedItem as User; 
 
-            if (author != null)
+            if (Author != null)
             {
-                App.selectedAuthor = author;
-                NavigationService.Navigate(new SelectedAuthorPage());
+                App.selectedAuthor = Author;
+                var selectedAuthorPage = new SelectedAuthorPage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow; 
+                mainWindow.BasicFrm.Content = selectedAuthorPage;
             }
         }
+
     }
 }

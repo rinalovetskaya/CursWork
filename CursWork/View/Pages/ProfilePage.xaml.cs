@@ -1,4 +1,5 @@
-﻿using CursWork.View.Windows;
+﻿using CursWork.Model;
+using CursWork.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +63,12 @@ namespace CursWork.View.Pages
 
         private void EditProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrm.Navigate(new EditProfilePage());
+            if (App.enteredUser != null)
+            {
+                var EditPage = new EditProfilePage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow;
+                mainWindow.BasicFrm.Content = EditPage;
+            }
         }
     }
 }

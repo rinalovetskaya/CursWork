@@ -26,16 +26,20 @@ namespace CursWork.View.Pages
             InitializeComponent();
 
             NicknameTb.DataContext = App.selectedAuthor;
-            NameTb.DataContext = App.selectedAuthor;
-            
-            //RefLb.ItemsSource=App.context.Reference.Where(x=>x.id==App.selectedPackRef.ref_id).Where(App.selectedPackRef.pack_id == App.selectedPack.id).ToList();
-
-
+            NameTb.DataContext = App.selectedPack;
+            RefLb.ItemsSource = App.context.Reference.Where(u => App.context.PackRef.Any(s => s.ref_id == u.id && s.pack_id == App.selectedPack.id)).Where(x=>App.selectedPack.user_id == x.author_id).ToList();
+            //RefLb.ItemsSource = App.context.PackRef.Join(App.context.Reference, pr => pr.ref_id, r => r.id, (pr, r) => new { PackRef = pr, Reference = r }).Where(joined => joined.PackRef.pack_id == App.selectedPack.id).ToList();
         }
 
         private void RefLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Reference reference = RefLb.SelectedItem as Reference;
 
+            if (reference != null)
+            {
+                App.selectedRef = reference;
+                NavigationService.Navigate(new SelectedRefOnAuthorPage());
+            }
         }
     }
 }

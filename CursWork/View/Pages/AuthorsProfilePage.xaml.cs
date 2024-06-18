@@ -27,7 +27,7 @@ namespace CursWork.View.Pages
             NickTbl.DataContext = App.enteredUser;
             UserImg.DataContext = App.enteredUser;
             StatTbl.DataContext = App.enteredUser;
-            MainFrm.Navigate(new RefAuthorProfilePage());
+            MainFrm.Navigate(new SubAuthorPage());
         }
 
         private void SunBtn_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,12 @@ namespace CursWork.View.Pages
 
         private void EditProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrm.Navigate(new EditAuthorProfilePage());
+            if (App.enteredUser != null)
+            {
+                var EditPage = new EditAuthorProfilePage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow;
+                mainWindow.BasicFrm.Content = EditPage;
+            }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -76,12 +81,16 @@ namespace CursWork.View.Pages
 
         private void NewPackBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrm.Navigate(new NewPackPage());
+            var NewPack = new NewPackPage();
+            var mainWindow = Window.GetWindow(this) as BasicWindow;
+            mainWindow.BasicFrm.Content = NewPack;
         }
 
         private void NewRefBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrm.Navigate(new NewRefPage());
+            var NewRef = new NewRefPage();
+            var mainWindow = Window.GetWindow(this) as BasicWindow;
+            mainWindow.BasicFrm.Content = NewRef;
         }
     }
 }

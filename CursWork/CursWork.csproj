@@ -124,6 +124,9 @@
     <Compile Include="View\Pages\EditAuthorProfilePage.xaml.cs">
       <DependentUpon>EditAuthorProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\EditPackPage.xaml.cs">
+      <DependentUpon>EditPackPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\EditProfilePage.xaml.cs">
       <DependentUpon>EditProfilePage.xaml</DependentUpon>
     </Compile>
@@ -250,6 +253,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\EditAuthorProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\EditPackPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

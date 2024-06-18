@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CursWork.Model;
+using CursWork.View.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,31 @@ namespace CursWork.View.Pages
         public SavedPackAuthorPage()
         {
             InitializeComponent();
+
+            PackLb.ItemsSource = App.context.Pack.Where(u => App.context.SavedPack.Any(s => s.pack_id == u.id && s.user_id == App.enteredUser.id)).ToList();
+        }
+
+
+        private void DelPackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var Sp = App.context.SavedPack.FirstOrDefault(x => x.user_id == App.enteredUser.id && x.pack_id == App.selectedPack.id);
+            App.context.SavedPack.Remove(Sp);
+            App.context.SaveChanges();
+
+            PackLb.ItemsSource = App.context.Pack.Where(u => App.context.SavedPack.Any(s => s.pack_id == u.id && s.user_id == App.enteredUser.id)).ToList();
+        }
+
+        private void PackLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var pack = PackLb.SelectedItem as Pack;
+
+            if (pack != null)
+            {
+                App.selectedPack = pack;
+                var selectedPackPage = new SelectedPackPage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow;
+                mainWindow.BasicFrm.Content = selectedPackPage;
+            }
         }
     }
 }

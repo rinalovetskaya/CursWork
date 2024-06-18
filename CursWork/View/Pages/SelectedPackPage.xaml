@@ -8,7 +8,81 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SelectedPackPage">
 
-    <Grid>
-        
+    <Grid Background="#F9DEC9">
+
+        <Border Background="White"
+            CornerRadius="100">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height=".6*" />
+                    <RowDefinition Height="9*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Name="NameTb" 
+                       Text="{Binding name}"
+                       FontSize="30"
+                       VerticalAlignment="Center"
+                       TextWrapping="WrapWithOverflow"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Name="NicknameTb" 
+                       Grid.Row="1"
+                       FontSize="20"
+                       Text="{Binding nickname}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+                <ListBox Name="RefLb"
+                     Grid.Row="2"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     SelectionChanged="RefLb_SelectionChanged">
+                    <ListBox.Resources>
+                        <Style TargetType="ScrollViewer">
+                            <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                        </Style>
+                    </ListBox.Resources>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="300"
+                                Height="400"                        
+                                BorderBrush="#E9B0A4"
+                                BorderThickness="2"
+                                CornerRadius="40"
+                                Background="White">
+                                <Grid>
+
+
+                                    <Image Source="{Binding Reference.photo}"
+                                       Stretch="UniformToFill">
+                                        <Image.Effect>
+                                            <BlurEffect Radius="2" />
+                                        </Image.Effect>
+                                        <Image.Clip>
+                                            <RectangleGeometry RadiusX="40" 
+                                           RadiusY="40"
+                                           Rect="0 0 295 400"/>
+                                        </Image.Clip>
+                                    </Image>
+
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+
+        </Border>
+
+
+
+
+
     </Grid>
 </Page>

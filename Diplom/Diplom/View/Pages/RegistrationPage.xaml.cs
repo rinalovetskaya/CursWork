@@ -135,12 +135,18 @@ namespace Diplom.View.Pages
 
         private void SurTb_LostFocus(object sender, RoutedEventArgs e)
         {
-            SurTb.Text = "Фамилия";
+            if (SurTb.Text == null)
+            {
+                SurTb.Text = "Фамилия";
+            }
         }
 
         private void NameTb_LostFocus(object sender, RoutedEventArgs e)
         {
-            NameTb.Text = "Имя";
+            if (NameTb.Text == null)
+            {
+                NameTb.Text = "Имя";
+            }
         }
 
         private void PatrTb_LostFocus(object sender, RoutedEventArgs e)

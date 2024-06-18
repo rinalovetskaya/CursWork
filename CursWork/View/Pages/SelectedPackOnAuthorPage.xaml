@@ -22,10 +22,14 @@
 
                 <TextBlock Name="NameTb" 
                            Text="{Binding name}"
+                           FontSize="30"
                            VerticalAlignment="Center"
+                           TextWrapping="WrapWithOverflow"
                            HorizontalAlignment="Center"/>
 
                 <TextBlock Name="NicknameTb" 
+                           Grid.Row="1"
+                           FontSize="20"
                            Text="{Binding nickname}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
@@ -41,7 +45,7 @@
                     </ListBox.Resources>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="320"
+                            <Border Width="300"
                                     Height="400"                        
                                     BorderBrush="#E9B0A4"
                                     BorderThickness="2"
@@ -58,7 +62,7 @@
                                         <Image.Clip>
                                             <RectangleGeometry RadiusX="40" 
                                                RadiusY="40"
-                                               Rect="0, 0, 317, 400"/>
+                                               Rect="0 0 295 400"/>
                                         </Image.Clip>
                                     </Image>
 

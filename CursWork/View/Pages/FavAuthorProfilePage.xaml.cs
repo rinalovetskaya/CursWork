@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursWork.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace CursWork.View.Pages
         public FavAuthorProfilePage()
         {
             InitializeComponent();
+            RefLb.ItemsSource = App.context.Reference.Where(u => App.context.SavedRef.Any(s => s.ref_id == u.id && s.user_id == App.enteredUser.id)).ToList();
+        }
+
+        private void RefLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Reference reference = RefLb.SelectedItem as Reference;
+
+            if (reference != null)
+            {
+                App.selectedRef = reference;
+                NavigationService.Navigate(new SelectedRefOnAuthorPage());
+            }
         }
     }
 }

@@ -30,25 +30,6 @@ namespace CursWork.View.Pages
 
         }
 
-        private void PackLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Pack pack = PackLb.SelectedItem as Pack;
-
-            if (pack != null)
-            {
-                App.selectedPack = pack;
-                NavigationService.Navigate(new SelectedPackOnAuthorPage());
-            }
-        }
-
-
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
-
-
-
         private void SavePackBtn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -62,5 +43,27 @@ namespace CursWork.View.Pages
             App.context.SaveChanges();
 
         }
+
+        private void PackLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Pack pack = PackLb.SelectedItem as Pack;
+
+            if (pack != null)
+            {
+                App.selectedPack = pack;
+                NavigationService.Navigate(new SelectedPackOnAuthorPage());
+            }
+
+        }
+
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+
+
+        
     }
 }

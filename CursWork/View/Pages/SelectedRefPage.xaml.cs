@@ -30,15 +30,13 @@ namespace CursWork.View.Pages
             NameTbl.DataContext = App.selectedRef;
             DescTbl.DataContext = App.selectedRef;
             DateTbl.DataContext = App.selectedRef;
-        }
-
-        private void BlockMethod()
-        {
-            if (SaveRefBtn != null)
+            bool IfTrue = App.context.SavedRef.Any(x => x.user_id == App.enteredUser.id && x.ref_id == App.selectedRef.id);
+            if (IfTrue == true)
             {
-                SaveRefBtn.IsEnabled = false;
+                DelRefBtn.Visibility = Visibility.Visible;
             }
         }
+
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -58,7 +56,19 @@ namespace CursWork.View.Pages
             App.context.SavedRef.Add(savedRef);
             App.context.SaveChanges();
 
-            BlockMethod();
+            DelRefBtn.Visibility= Visibility.Visible;
+
+        }
+
+        private void DelRefBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (DelRefBtn.Visibility == Visibility.Visible)
+            {
+                var sref = App.context.SavedRef.FirstOrDefault(x => x.user_id == App.enteredUser.id && x.ref_id == App.selectedRef.id);
+                App.context.SavedRef.Remove(sref);
+                App.context.SaveChanges();
+                DelRefBtn.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

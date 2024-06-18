@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursWork.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,22 @@ namespace CursWork.View.Pages
     {
         public SelectedPackPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            NicknameTb.DataContext = App.selectedPack;
+            NameTb.DataContext = App.selectedPack;
+
+            RefLb.ItemsSource = App.context.PackRef.Join(App.context.Reference, pr => pr.ref_id, r => r.id, (pr, r) => new { PackRef = pr, Reference = r }).Where(joined => joined.PackRef.pack_id == App.selectedPack.id).ToList();
+        }
+
+        private void RefLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Reference reference = RefLb.SelectedItem as Reference;
+
+            if (reference != null)
+            {
+                App.selectedRef = reference;
+                NavigationService.Navigate(new SelectedRefOnAuthorPage());
+            }
         }
     }
 }

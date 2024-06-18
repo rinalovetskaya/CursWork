@@ -56,7 +56,7 @@ namespace CursWork.View.Pages
 
         private void FavourBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrm.NavigationService.Navigate(new FavourAuthorPage());
         }
 
         private void SubBtn_Click(object sender, RoutedEventArgs e)

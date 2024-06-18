@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CursWork.Model;
+using CursWork.View.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,21 @@ namespace CursWork.View.Pages
         public SubAuthorPage()
         {
             InitializeComponent();
+
+            AuthorsLb.ItemsSource = App.context.User.Where(u => App.context.Subscriber.Any(s => s.author_id == u.id && s.user_id == App.enteredUser.id)).ToList();
+        }
+
+        private void AuthorsLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var Author = AuthorsLb.SelectedItem as User;
+
+            if (Author != null)
+            {
+                App.selectedAuthor = Author;
+                var selectedAuthorPage = new SelectedAuthorPage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow;
+                mainWindow.BasicFrm.Content = selectedAuthorPage;
+            }
         }
     }
 }

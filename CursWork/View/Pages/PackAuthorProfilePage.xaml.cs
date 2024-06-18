@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CursWork.Model;
+using CursWork.View.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,34 @@ namespace CursWork.View.Pages
         public PackAuthorProfilePage()
         {
             InitializeComponent();
+            PackLb.ItemsSource = App.context.Pack.Where(u => u.user_id == App.enteredUser.id).ToList();
+        }
+
+
+        private void PackLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var pack = PackLb.SelectedItem as Pack;
+
+            if (pack != null)
+            {
+                App.selectedPack = pack;
+                var selectedPackPage = new SelectedPackPage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow;
+                mainWindow.BasicFrm.Content = selectedPackPage;
+            }
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var pack = PackLb.SelectedItem as Pack;
+
+            if (pack != null)
+            {
+                App.selectedPack = pack;
+                var EditPack = new EditPackPage();
+                var mainWindow = Window.GetWindow(this) as BasicWindow;
+                mainWindow.BasicFrm.Content = EditPack;
+            }
         }
     }
 }

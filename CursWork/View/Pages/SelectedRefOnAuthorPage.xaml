@@ -38,6 +38,7 @@
 
             <TextBlock Text="{Binding name}"
                    HorizontalAlignment="Left"
+                       TextWrapping="Wrap"
                    Name="NameTbl"
                    Margin="20"
                    FontSize="40"/>

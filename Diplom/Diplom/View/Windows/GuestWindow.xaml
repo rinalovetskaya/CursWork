@@ -89,6 +89,7 @@
         </Grid>
 
         <Frame Name="MainFrm"
+               Grid.Column="1"
                NavigationUIVisibility="Hidden"/>
 
     </Grid>

@@ -24,7 +24,7 @@
             <Grid Grid.RowSpan="2"
                   Background="#FFE8E3">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="5*" />
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="1*" />
@@ -48,14 +48,14 @@
                 </Image>
 
                 <TextBlock Name="NickTbl"
-                           Margin="0 150 0 0"
+                           Margin="0 200 0 0"
                            HorizontalAlignment="Center"
                            FontSize="25"
                            TextAlignment="Center"
                            Text="{Binding nickname}"/>
 
                 <TextBlock Name="StatTbl"
-                           Margin="0 250 0 0"
+                           Margin="0 280 0 0"
                            HorizontalAlignment="Center"
                            FontSize="15"
                            TextAlignment="Center"
